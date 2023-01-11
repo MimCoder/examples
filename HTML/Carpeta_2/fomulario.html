@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios</title>
+  </head>
+  <body>
+    <form>
+      <!-- <label for="ingresaNombre">Ingresa tu Nombre </label> Esta etiqueta ayuda en poner el nombre a lado del recuadro.-->
+      <fieldset>
+        <legend>Ingresa tus datos personales</legend>
+        <input type="text" placeholder="Nombre" />
+        <input type="email" placeholder="Correo electronico" />
+        <input type="password" placeholder="Contraseña" />
+      </fieldset>
+      <br /><br />
+      <input
+        type="text"
+        id="ingresaNombre"
+        maxlength="10"
+        placeholder="Nombre"
+        required
+      /><br /><br />
+      <input type="email" name="" id="" placeholder="Ingresa email" required />
+      <br /><br />
+      <input type="password" placeholder="Contraseña" />
+      <br /><br />
+      <input type="color" />
+      <input type="date" name="" id="" />
+      <br /><br />
+      <h3>Elige tu sexo</h3>
+      <!-- Si el nombre de contacto es igual se restringira a una seleccion; si el nombre de contacto es diferente se podra seleccionar mas de 
+      una opcion. -->
+      <input type="radio" name="genero" id="Hombre" />
+      <label for="Hombre">Hombre</label>
+      <input type="radio" name="genero" id="Mujer" />
+      <label for="Mujer">Mujer</label>
+      <br />
+      <h3>Elige tu carrera</h3>
+      <select>
+        <option value="Markt">Marketing</option>
+        <option value="Program">Programación</option>
+        <option value="Ciencias">Ciencias</option>
+        <option value="Español">Español</option></select
+      ><br /><br />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Escribe un comentario"
+      ></textarea>
+      <br /><br />
+      <input type="checkbox" name="" id="check" /><label for="check"
+        >Terminos y condiciones</label
+      >
+      <br />
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>
