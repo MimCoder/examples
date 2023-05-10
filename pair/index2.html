@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <title>Mi formulario</title>
+    <style>
+      .err {
+        border-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="get" id="formulario">
+      Nombre: <input type="text" name="name" /> Género:
+      <input type="radio" name="gender" value="M" />Masculino
+      <input type="radio" name="gender" value="F" />Femenino Fecha de
+      nacimiento: <input type="date" name="dob" />
+      <input type="submit" value="Enviar" />
+    </form>
+    <p id="mensaje"></p>
+    <script>
+      //Obtenemos la referencia del elelento html
+      const formu = document.getElementById("formulario");
+      console.log(formu);
+      // a la referencia le agregamos un listener para que escuche el evento
+      formu.addEventListener("submit", ($event) => {
+        //Obtenemos la referencia del input name y obtenemos la primera referencia que se encuentre
+        const nombre = document.getElementsByName("name").item(0);
+        //Obtenemos la referencia del input dob(fecha de nacimiento) y obtenemos la primera referencia que se encuentre
+        const dob = document.getElementsByName("dob").item(0);
+        //Obtenemos las referencias de input con el nombre de radio y buscamos si es que alguna tiene valor y guardamos ese valor
+        let genero = null;
+        document.getElementsByName("gender").forEach((radio) => {
+          if (radio.checked) {
+            genero = radio.value;
+          }
+        });
+        // imprimiros los valores obtenidos
+        console.log(dob.value);
+        console.log(nombre.value);
+        console.log(genero);
+        let error = "";
+        if (!dob.value) {
+          error += "Falta la fecha de nacimiento ";
+        }
+        if (!nombre.value) {
+          error += "Falta el nombre ";
+          nombre.classList.add("err");
+        } else {
+          const regp = new RegExp("[a-zA-Z]+");
+          const regexp = /^[a-zA-Z]+$/;
+          if (regexp.test(nombre.value)) {
+            nombre.classList.remove("err");
+          } else {
+            error += "Nombre no valido";
+            nombre.classList.add("err");
+          }
+        }
+        if (!genero) {
+          error += "Falta el genero ";
+        }
+        if (error !== "") {
+          // detenemos la accion predefinida
+          $event.preventDefault();
+          const msj = document.getElementById("mensaje");
+          msj.innerHTML = error;
+        }
+      });
+
+      setTimeout(() => {
+        //Obtenemos la referencia del input name y obtenemos la primera referencia que se encuentre
+        const nombre = document.getElementsByName("name").item(0);
+        //Obtenemos la referencia del input dob(fecha de nacimiento) y obtenemos la primera referencia que se encuentre
+        const dob = document.getElementsByName("dob").item(0);
+        //Obtenemos las referencias de input con el nombre de radio y buscamos si es que alguna tiene valor y guardamos ese valor
+        let genero = null;
+        document.getElementsByName("gender").forEach((radio) => {
+          if (radio.checked) {
+            genero = radio.value;
+          }
+        });
+        // imprimiros los valores obtenidos
+        console.log(dob.value);
+        console.log(nombre.value);
+        console.log(genero);
+        let error = "";
+        if (!dob.value) {
+          error += "Falta la fecha de nacimiento ";
+        }
+        if (!nombre.value) {
+          error += "Falta el nombre ";
+          nombre.classList.add("err");
+        } else {
+          const regp = new RegExp("[a-zA-Z]+");
+          const regexp = /^[a-zA-Z]+$/;
+          if (regexp.test(nombre.value)) {
+            nombre.classList.remove("err");
+          } else {
+            error += "Nombre no valido";
+            nombre.classList.add("err");
+          }
+        }
+        if (!genero) {
+          error += "Falta el genero ";
+        }
+        if (error !== "") {
+          const msj = document.getElementById("mensaje");
+          msj.innerHTML = error;
+        }
+      }, 10000);
+    </script>
+  </body>
+</html>

@@ -16,6 +16,8 @@ const colores = ["verde","blanco","rojo"]
 console.log (objeto);
 console.log (colores);
 
+objeto.nacionalidad = "mexicana";
+objeto.sexo = "femenino";
 objeto.apellido = "de la Cruz";
 colores.push ("amarillo");
 
